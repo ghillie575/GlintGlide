@@ -1,0 +1,5 @@
+#ifndef ENCODE_DEF_H
+#define ENCODE_DEF_H
+#define ENCODER_IV "123456789ABCDEF01122334455667788"
+#define ENCODER_KEY "encoder_key"
+#endif

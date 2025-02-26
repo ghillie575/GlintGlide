@@ -1,8 +1,13 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(GlintGlide VERSION 0.1.0 LANGUAGES C CXX)
-
+find_package(OpenSSL REQUIRED)
 add_executable(GlintGlide main.cpp)
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c")
+target_sources(GlintGlide PRIVATE ${SOURCES})
+target_include_directories(GlintGlide PRIVATE "include")
+target_link_libraries(GlintGlide OpenSSL::SSL OpenSSL::Crypto)
 
+target_include_directories(GlintGlide PRIVATE ${OPENSSL_INCLUDE_DIR})
 include(CTest)
 enable_testing()
 
